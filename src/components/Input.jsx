@@ -1,17 +1,16 @@
 import React from "react";
 
-function Input(props) {
-  const {
-    label,
-    placeholder,
-    onChange,
-    type,
-    value,
-    defaultValue,
-    register,
-    name,
-    error,
-  } = props;
+function Input({
+  label,
+  placeholder,
+  onChange,
+  type,
+  value,
+  defaultValue,
+  register,
+  name,
+  error,
+}) {
   return (
     <div className="flex flex-col mb-4 font-quicksand-font">
       <label>{label}</label>
@@ -35,18 +34,17 @@ function Input(props) {
   );
 }
 
-function TextArea(props) {
-  const {
-    label,
-    placeholder,
-    onChange,
-    type,
-    value,
-    defaultValue,
-    register,
-    name,
-    error,
-  } = props;
+function TextArea({
+  label,
+  placeholder,
+  onChange,
+  type,
+  value,
+  defaultValue,
+  register,
+  name,
+  error,
+}) {
   return (
     <div className="flex flex-col mb-4">
       <label>{label}</label>

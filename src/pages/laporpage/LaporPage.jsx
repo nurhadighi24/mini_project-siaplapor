@@ -6,7 +6,12 @@ import * as z from "zod";
 import Navbar from "../../components/Navbar";
 import { Input, TextArea } from "../../components/Input";
 import Button from "../../components/Button";
-import { createReport, getLapor } from "../../utils/apis/lapor/laporApi";
+import {
+  createReport,
+  deleteReport,
+  getLapor,
+  updateReport,
+} from "../../utils/apis/lapor/laporApi";
 import Swal from "../../utils/swal";
 import Table from "../../components/table/Table";
 import Loading from "../../components/Loading";
@@ -26,6 +31,7 @@ const schema = z.object({
 });
 
 export default function LaporPage() {
+  const [selectedId, setSelectedId] = useState("");
   const [report, setReport] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,6 +45,7 @@ export default function LaporPage() {
   const {
     reset,
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -54,7 +61,6 @@ export default function LaporPage() {
       setIsLoading(true);
       const result = await getLapor();
       setReport(result);
-      console.log(result);
     } catch (error) {
       console.log(error);
     } finally {
@@ -79,17 +85,86 @@ export default function LaporPage() {
         text: error.message,
         showCancelButton: false,
       });
-      console.log(error);
     }
   }
 
+  async function handleDeleteClick(id_product) {
+    try {
+      const confirmationDelete = await Swal.fire({
+        icon: "warning",
+        title: "apakah anda yakin ingin menghapus Laporan?",
+        text: "Laporan tidak akan muncul lagi!",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "IYA HAPUS!",
+      });
+
+      if (confirmationDelete.isConfirmed) {
+        await deleteReport(id_product);
+
+        Swal.fire({
+          title: "Terhapus!",
+          text: "Laporan anda terhapus!",
+          icon: "success",
+          showCancelButton: false,
+        });
+
+        fetchData();
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        showCancelButton: false,
+      });
+    }
+  }
+
+  async function handleSubmitEdit(data) {
+    try {
+      await updateReport({ ...data, id: selectedId });
+
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Sukses mengubah Laporan!",
+        showCancelButton: false,
+      });
+      setSelectedId("");
+      reset();
+      fetchData();
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        showCancelButton: false,
+      });
+    }
+  }
+
+  function handleEditClick(data) {
+    Swal.fire({
+      icon: "info",
+      title: "UBAH LAPORAN DI FORMULIR!",
+      showCancelButton: false,
+    });
+    window.scrollTo(0, 0);
+    setSelectedId(data.id);
+    setValue("titleReport", data.titleReport);
+    setValue("addressReport", data.addressReport);
+    setValue("dateReport", data.dateReport);
+    setValue("descriptionReport", data.descriptionReport);
+  }
   return (
     <>
       <Navbar />
       <div className=" h-full bg-custom-blue-3">
         <form
           className="py-10 m-auto justify-center items-center w-3/6"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(
+            selectedId == "" ? onSubmit : handleSubmitEdit
+          )}
         >
           <h1 className=" bg-custom-orange-2 py-5 text-center text-white w-4/6 justify-center items-center m-auto mb-8 font-bold">
             LAPORKAN KELUHAN ANDA!
@@ -142,8 +217,11 @@ export default function LaporPage() {
                 "Tempat Kejadian",
                 "Tanggal Kejadian",
                 "Deskripsi Kejadian",
+                "Edit/Hapus",
               ]}
               datas={currentPosts}
+              onDeleteClick={(id) => handleDeleteClick(id)}
+              onEditClick={(data) => handleEditClick(data)}
             />
             <Pagination
               totalPosts={report.length}

@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 
-export default function Table({ headers = [], datas = [] }) {
+import { IoTrash, IoPencil } from "react-icons/io5";
+
+export default function Table({
+  headers = [],
+  datas = [],
+  onDeleteClick,
+  onEditClick,
+}) {
   return (
-    <div className=" pb-10">
+    <div className=" pb-10 ">
       <table className=" table-fixed bg-white border-collapse m-auto">
         <thead>
           <tr>
@@ -34,6 +41,18 @@ export default function Table({ headers = [], datas = [] }) {
               <td className=" border-2 border-black pl-2">{data.dateReport}</td>
               <td className=" border-2 border-black pl-2">
                 {data.descriptionReport}
+              </td>
+              <td className=" text-3xl text-center">
+                <div className=" flex justify-center items-center gap-10  ">
+                  <IoPencil
+                    className=" text-custom-lightgreen-1 transition ease-in-out hover:-translate-y-1 hover:scale-110 cursor-pointer"
+                    onClick={() => onEditClick(data)}
+                  />
+                  <IoTrash
+                    className=" text-red-700 transition ease-in-out hover:-translate-y-1 hover:scale-110 cursor-pointer"
+                    onClick={() => onDeleteClick(data.id)}
+                  />
+                </div>
               </td>
             </tr>
           ))}

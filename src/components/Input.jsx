@@ -12,7 +12,7 @@ function Input({
   error,
 }) {
   return (
-    <div className="flex flex-col mb-4 font-quicksand-font">
+    <div className="flex flex-col mb-4 font-quicksand-font mx-10">
       <label>{label}</label>
       <input
         className=" mt-1 px-3 py-2 bg-white border-2 border-custom-blue-1 shadow-sm w-full rounded-radius-20px"

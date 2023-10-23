@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import LandingPage from "../pages/landingpage/landingpage";
 import LaporPage from "../pages/laporpage/LaporPage";
-import { setAxiosConfig } from "../utils/apis/axiosWithConfig";
+import Login from "../pages/auth/Login";
+import { useToken } from "../utils/states/token-context";
 
 export default function Routes() {
+  const { token } = useToken();
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -12,7 +19,11 @@ export default function Routes() {
     },
     {
       path: "/lapor",
-      element: <LaporPage />,
+      element: token === "" ? <Navigate to="/login" /> : <LaporPage />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
     {
       path: "*",

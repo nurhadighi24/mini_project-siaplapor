@@ -12,6 +12,7 @@ export default {
         "custom-blue-3": "#182548",
         "custom-lightgreen-1": "#00B798",
         "custom-orange-2": "#FC4F49",
+        "custom-gray-1": "#425262",
       },
       borderRadius: {
         "radius-20px": "20px",

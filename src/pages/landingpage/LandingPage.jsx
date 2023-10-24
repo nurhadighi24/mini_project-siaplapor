@@ -37,6 +37,11 @@ export default function LandingPage() {
         <>
           <Navbar />
           <div className=" bg-custom-blue-2 flex justify-center items-center font-quicksand-font">
+            <img
+              src="./bg-img.jpg"
+              alt="background-image"
+              className=" w-96 rounded-radius-20px"
+            />
             <div className=" py-32 px-20">
               <h1 className=" font-bold text-custom-lightgreen-1">
                 <span className=" font-extrabold text-7xl decoration-4 underline">
@@ -49,7 +54,7 @@ export default function LandingPage() {
             </div>
 
             <div className="  px-10">
-              <p className=" text-custom-orange-1 pb-10">
+              <p className=" text-custom-orange-1 pb-10 text-xl">
                 Jika kalian ada keluhan tentang lingkungan kalian, lapor dengan
                 memulai tekan tombol dibawah ini.
               </p>
@@ -63,7 +68,7 @@ export default function LandingPage() {
           </div>
 
           <div className=" bg-custom-blue-3 h-screen text-center">
-            <h1 className=" text-custom-lightgreen-1 font-bold text-7xl font-jockeyone-font py-28">
+            <h1 className=" text-white font-bold text-7xl font-jockeyone-font py-28">
               PORTAL BERITA
             </h1>
             {isLoading ? (

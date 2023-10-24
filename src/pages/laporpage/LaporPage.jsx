@@ -95,8 +95,8 @@ export default function LaporPage() {
         title: "apakah anda yakin ingin menghapus Laporan?",
         text: "Laporan tidak akan muncul lagi!",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
         confirmButtonText: "IYA HAPUS!",
       });
 
@@ -161,12 +161,12 @@ export default function LaporPage() {
       <Navbar />
       <div className=" h-full bg-custom-blue-3">
         <form
-          className="py-10 m-auto justify-center items-center w-3/6"
+          className="py-10 m-auto justify-center items-center w-3/6  rounded-lg px-10 mb-5"
           onSubmit={handleSubmit(
             selectedId == "" ? onSubmit : handleSubmitEdit
           )}
         >
-          <h1 className=" bg-custom-orange-2 py-5 text-center text-white w-4/6 justify-center items-center m-auto mb-8 font-bold">
+          <h1 className=" bg-custom-orange-2 py-5 text-center text-white w-4/6 justify-center items-center m-auto mb-8 font-bold rounded-md">
             LAPORKAN KELUHAN ANDA!
           </h1>
           <Input

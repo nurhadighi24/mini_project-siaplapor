@@ -1,6 +1,6 @@
 export const login = async (data) => {
   try {
-    const dummyUser = { username: "admin", password: "password123" };
+    const dummyUser = { username: "user", password: "password123" };
     if (
       data.username === dummyUser.username &&
       data.password === dummyUser.password

@@ -43,6 +43,7 @@ export default function Login() {
     } catch (error) {
       Swal.fire({
         title: "Error",
+        icon: "error",
         text: error.message,
         showCancelButton: false,
       });
@@ -56,15 +57,17 @@ export default function Login() {
         className=" bg-custom-gray-1 w-3/6 m-auto justify-center mt-10 rounded-radius-20px"
         onSubmit={handleSubmit(handleLogin)}
       >
-        <h1 className=" text-center bg text-7xl font-bold py-10">Login</h1>
+        <h1 className=" text-center text-7xl font-bold py-10 font-quicksand-font">
+          Login
+        </h1>
         <Input
-          placeholder="Username"
+          placeholder="'user'"
           register={register}
           name="username"
           error={errors.username?.message}
         />
         <Input
-          placeholder="Password"
+          placeholder="'password123'"
           register={register}
           name="password"
           type="password"
@@ -73,7 +76,7 @@ export default function Login() {
         <div className=" flex justify-center">
           <Button
             label="Submit"
-            className="bg-custom-orange-1 px-20 font-extrabold rounded-radius-20px text-custom-blue-3 py-3 mb-4"
+            className="bg-custom-orange-1 px-20 font-extrabold rounded-radius-20px text-custom-blue-3 py-3 mb-4 font-quicksand-font"
           />
         </div>
       </form>

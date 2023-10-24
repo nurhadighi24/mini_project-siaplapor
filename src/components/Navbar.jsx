@@ -19,7 +19,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className=" bg-white flex justify-between items-center border-b-2 shadow-md p-3 sticky top-0">
+    <nav className=" bg-black flex justify-between items-center shadow-md p-3 sticky top-0">
       <div>
         <Link
           to="/"
@@ -31,13 +31,13 @@ export default function Navbar() {
       <div className="flex gap-5 cursor-pointer font-quicksand-font">
         <Link
           to="/"
-          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2  transition ease-in-out hover:-translate-y-1 hover:scale-110"
+          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2  transition ease-in-out hover:-translate-y-1 hover:scale-110 font-bold"
         >
           Home
         </Link>
         <Link
           to="/lapor"
-          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110"
+          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 font-bold"
         >
           LAPOR!
         </Link>
@@ -45,13 +45,13 @@ export default function Navbar() {
         {token === "" ? (
           <Link
             to="/login"
-            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1"
+            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1 font-bold"
           >
             Login
           </Link>
         ) : (
           <p
-            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1"
+            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1 font-bold"
             onClick={() => handleLogout()}
           >
             Logout

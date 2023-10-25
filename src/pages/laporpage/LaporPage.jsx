@@ -16,6 +16,7 @@ import Swal from "../../utils/swal";
 import Table from "../../components/table/Table";
 import Loading from "../../components/Loading";
 import Pagination from "../../components/table/Pagination";
+import { IoSearch } from "react-icons/io5";
 
 const schema = z.object({
   titleReport: z.string().min(1, { message: "Tolong masukkan Judul Keluhan." }),
@@ -32,15 +33,28 @@ const schema = z.object({
 
 export default function LaporPage() {
   const [selectedId, setSelectedId] = useState("");
+  const [search, setSearch] = useState("");
   const [report, setReport] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
 
+  //Membuat fitur search menggunakan .filter()
+  const filteredReports = report.filter((item) =>
+    item.titleReport.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // membuat pagination
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = report.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = filteredReports.slice(firstPostIndex, lastPostIndex);
+
+  //membuat function untuk fitur search
+  function handleSearchChange(value) {
+    setSearch(value);
+    setCurrentPage(1);
+  }
 
   const {
     reset,
@@ -170,7 +184,7 @@ export default function LaporPage() {
             LAPORKAN KELUHAN ANDA!
           </h1>
           <Input
-            placeholder="Judul Keluhan"
+            placeholder="Judul Laporan"
             register={register}
             type="text"
             name="titleReport"
@@ -205,6 +219,17 @@ export default function LaporPage() {
             />
           </div>
         </form>
+
+        <div className=" flex items-center justify-center w-3/6 bg-slate-950 rounded-radius-20px h-10 px-4 py-2 mb-5 m-auto">
+          <IoSearch className=" text-white text-2xl" />
+          <input
+            type="text"
+            placeholder="Cari berdasarkan Judul Laporan..."
+            value={search}
+            onChange={(e) => handleSearchChange(e.target.value)}
+            className=" bg-transparent border-none w-full ml-4 focus:outline-none text-white font-quicksand-font"
+          />
+        </div>
 
         {isLoading ? (
           <Loading />

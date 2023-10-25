@@ -8,9 +8,11 @@ export default function Pagination({
 }) {
   let pages = [];
 
+  //Math.ceil digunakan untuk membulatkan bilangan ke atas
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pages.push(i);
   }
+
   return (
     <div className=" flex justify-center pb-10">
       {pages.map((page, index) => {

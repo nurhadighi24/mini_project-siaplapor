@@ -4,10 +4,11 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import LandingPage from "../pages/landingpage/landingpage";
+
 import LaporPage from "../pages/laporpage/LaporPage";
 import Login from "../pages/auth/Login";
 import { useToken } from "../utils/states/token-context";
+import LandingPage from "../pages/landingpage/landingpage";
 
 export default function Routes() {
   const { token } = useToken();

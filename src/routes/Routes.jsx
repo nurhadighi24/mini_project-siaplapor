@@ -8,7 +8,7 @@ import {
 import LaporPage from "../pages/laporpage/LaporPage";
 import Login from "../pages/auth/Login";
 import { useToken } from "../utils/states/token-context";
-import LandingPage from "../pages/landingpage/landingpage";
+import LandingPage from "../pages/landingpage/LandingPage.jsx";
 
 export default function Routes() {
   const { token } = useToken();

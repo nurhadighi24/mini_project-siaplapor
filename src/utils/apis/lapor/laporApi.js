@@ -1,6 +1,6 @@
 import axiosWithConfig from "../axiosWithConfig";
 
-export const getLapor = async () => {
+export const getReport = async () => {
   try {
     const response = await axiosWithConfig.get(
       `https://651a7c65340309952f0d5f71.mockapi.io/reports`

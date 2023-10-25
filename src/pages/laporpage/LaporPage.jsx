@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 import {
   createReport,
   deleteReport,
-  getLapor,
+  getReport,
   updateReport,
 } from "../../utils/apis/lapor/laporApi";
 import Swal from "../../utils/swal";
@@ -59,7 +59,7 @@ export default function LaporPage() {
   async function fetchData() {
     try {
       setIsLoading(true);
-      const result = await getLapor();
+      const result = await getReport();
       setReport(result);
     } catch (error) {
       console.log(error);
@@ -213,9 +213,9 @@ export default function LaporPage() {
             <Table
               headers={[
                 "No",
-                "Judul Kejadian",
+                "Judul Laporan",
                 "Tempat Kejadian",
-                "Tanggal Kejadian",
+                "Tanggal Laporan",
                 "Deskripsi Kejadian",
                 "Edit/Hapus",
               ]}

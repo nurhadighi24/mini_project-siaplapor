@@ -47,6 +47,7 @@ export default function Login() {
         text: error.message,
         showCancelButton: false,
       });
+      console.log(error);
     }
   }
 
@@ -61,7 +62,7 @@ export default function Login() {
           Login
         </h1>
         <Input
-          placeholder="'user'"
+          placeholder="'user1'"
           register={register}
           name="username"
           error={errors.username?.message}

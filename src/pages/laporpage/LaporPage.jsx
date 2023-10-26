@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -170,6 +170,22 @@ export default function LaporPage() {
     setValue("dateReport", data.dateReport);
     setValue("descriptionReport", data.descriptionReport);
   }
+
+  const tableHeaders = useMemo(() => {
+    if (currentPosts.length > 0) {
+      return [
+        "No",
+        "Judul Laporan",
+        "Tempat Kejadian",
+        "Tanggal Laporan",
+        "Deskripsi Kejadian",
+        "Edit/Hapus",
+      ];
+    }
+
+    return [];
+  }, [currentPosts]);
+
   return (
     <>
       <Navbar />
@@ -236,20 +252,13 @@ export default function LaporPage() {
         ) : (
           <>
             <Table
-              headers={[
-                "No",
-                "Judul Laporan",
-                "Tempat Kejadian",
-                "Tanggal Laporan",
-                "Deskripsi Kejadian",
-                "Edit/Hapus",
-              ]}
+              headers={tableHeaders}
               datas={currentPosts}
               onDeleteClick={(id) => handleDeleteClick(id)}
               onEditClick={(data) => handleEditClick(data)}
             />
             <Pagination
-              totalPosts={report.length}
+              totalPosts={filteredReports.length}
               postsPerPage={postsPerPage}
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}

@@ -9,6 +9,7 @@ import LaporPage from "../pages/laporpage/LaporPage";
 import Login from "../pages/auth/Login";
 import { useToken } from "../utils/states/token-context";
 import LandingPage from "../pages/landingpage/LandingPage.jsx";
+import Qnabot from "../pages/qnabot/qnabot";
 
 export default function Routes() {
   const { token } = useToken();
@@ -25,6 +26,10 @@ export default function Routes() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/qnabot",
+      element: <Qnabot />,
     },
     {
       path: "*",

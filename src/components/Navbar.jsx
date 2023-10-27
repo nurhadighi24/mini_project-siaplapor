@@ -41,6 +41,12 @@ export default function Navbar() {
         >
           LAPOR!
         </Link>
+        <Link
+          to="/qnabot"
+          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 font-bold"
+        >
+          QnA with bot
+        </Link>
 
         {token === "" ? (
           <Link

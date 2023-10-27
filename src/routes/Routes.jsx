@@ -9,7 +9,7 @@ import LaporPage from "../pages/laporpage/LaporPage";
 import Login from "../pages/auth/Login";
 import { useToken } from "../utils/states/token-context";
 import LandingPage from "../pages/landingpage/LandingPage.jsx";
-import Qnabot from "../pages/qnabot/qnabot";
+import Qnabot from "../pages/qnabot/Qnabot.jsx";
 
 export default function Routes() {
   const { token } = useToken();

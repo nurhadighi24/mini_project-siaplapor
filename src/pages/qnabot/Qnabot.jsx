@@ -20,7 +20,13 @@ export default function Qnabot() {
   async function fetchData() {
     try {
       const response = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "You are a helpful assistant." }],
+        messages: [
+          {
+            role: "system",
+            content:
+              "User akan memberikan pertanyaan tentang lingkungan sekitar, contohnya kemalingan, bencana alam, dan masalah sosial lainnya. Tugas kamu sebagai assistant akan memberikan jawaban yang terbaik.",
+          },
+        ],
         model: "gpt-3.5-turbo",
       });
       setResults(response.choices);

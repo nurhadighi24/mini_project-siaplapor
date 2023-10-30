@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
+import Loading from "../../components/Loading";
 
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
@@ -78,7 +79,7 @@ export default function Qnabot() {
         />
         <Button
           className=" bg-custom-orange-1 px-8 font-extrabold rounded-radius-20px text-custom-blue-3 py-3 font-quicksand-font"
-          label={isLoading ? "Loading..." : "Submit"}
+          label={isLoading ? <Loading /> : "Submit"}
           type="submit"
           disabled={isLoading}
         />

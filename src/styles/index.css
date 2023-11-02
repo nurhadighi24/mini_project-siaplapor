@@ -38,3 +38,7 @@
 .select2-results__group {
   @apply text-lg font-bold text-gray-900;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

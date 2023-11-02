@@ -25,7 +25,19 @@ const schema = z.object({
     .min(1, { message: "Tolong masukkan Alamat Kejadiannya." }),
   dateReport: z
     .string()
-    .min(1, { message: "Tolong masukkan Tanggal Kejadiannya." }),
+    .min(1, { message: "Tanggal tidak boleh kosong" })
+    .refine(
+      (date) => {
+        const selectedDate = new Date(date);
+        const minDate = new Date("2023-01-01");
+        const maxDate = new Date();
+
+        return selectedDate >= minDate && selectedDate <= maxDate;
+      },
+      {
+        message: "Tanggal kejadian harus di antara 01-01-2023 dan hari ini.",
+      }
+    ),
   descriptionReport: z
     .string()
     .min(1, { message: "Tolong masukkan Deskripsi Kejadiannya" }),
@@ -214,9 +226,8 @@ export default function LaporPage() {
             error={errors.addressReport?.message}
           />
           <Input
-            placeholder="Tanggal/Bulan/Tahun"
             register={register}
-            type="text"
+            type="date"
             name="dateReport"
             error={errors.dateReport?.message}
           />

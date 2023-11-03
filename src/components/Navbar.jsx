@@ -23,12 +23,12 @@ export default function Navbar() {
       <div>
         <Link
           to="/"
-          className=" font-bold text-4xl font-quicksand-font text-blue-2-navbar"
+          className=" font-bold text-4xl font-quicksand-font text-white"
         >
           SIAPLAPOR!
         </Link>
       </div>
-      <div className="flex gap-5 cursor-pointer font-quicksand-font">
+      <div className="flex gap-5 justify-center cursor-pointer font-quicksand-font">
         <Link
           to="/"
           className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2  transition ease-in-out hover:-translate-y-1 hover:scale-110 font-bold"
@@ -47,23 +47,22 @@ export default function Navbar() {
         >
           QnA with bot
         </Link>
-
-        {token === "" ? (
-          <Link
-            to="/login"
-            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1 font-bold"
-          >
-            Login
-          </Link>
-        ) : (
-          <p
-            className=" bg-blue-2-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-lightgreen-1 font-bold"
-            onClick={() => handleLogout()}
-          >
-            Logout
-          </p>
-        )}
       </div>
+      {token === "" ? (
+        <Link
+          to="/login"
+          className=" bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-orange-1 font-bold font-quicksand-font cursor-pointer"
+        >
+          Login
+        </Link>
+      ) : (
+        <p
+          className=" bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 text-custom-orange-1 font-bold font-quicksand-font cursor-pointer"
+          onClick={() => handleLogout()}
+        >
+          Logout
+        </p>
+      )}
     </nav>
   );
 }

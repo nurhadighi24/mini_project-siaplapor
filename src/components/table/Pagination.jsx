@@ -20,7 +20,7 @@ export default function Pagination({
           <button
             key={index}
             className={`${
-              currentPage === page ? "bg-slate-400" : "bg-neutral-950"
+              currentPage === page ? "bg-black" : "bg-slate-950"
             } text-white m-3 p-5 rounded-radius-20px hover:bg-slate-400 font-quicksand-font`}
             onClick={() => setCurrentPage(page)}
           >

@@ -42,3 +42,7 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+
+.text-stroke-1 {
+  -webkit-text-stroke: 1px black;
+}

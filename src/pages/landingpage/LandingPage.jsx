@@ -43,7 +43,7 @@ export default function LandingPage() {
               className=" w-96 rounded-radius-20px"
             />
             <div className=" py-32 px-20">
-              <h1 className=" font-bold text-custom-lightgreen-1">
+              <h1 className=" font-bold text-white">
                 <span className=" font-extrabold text-7xl decoration-4 underline">
                   SiapLapor!
                 </span>{" "}
@@ -93,12 +93,12 @@ export default function LandingPage() {
                       className=" block w-full h-full object-cover  rounded-radius-20px transition ease-in-out hover:-translate-y-1 hover:scale-110"
                     />
 
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center ">
-                      <h3 className=" text-3xl font-bold mb-2  font-jockeyone-font text-black">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center ">
+                      <h3 className=" text-3xl font-bold mb-2 font-jockeyone-font text-white text-stroke-1">
                         {item.title}
                       </h3>
                       <a href={item.link}>
-                        <p className=" text-lg mt-36 bg-black py-5 hover:bg-white hover:text-black rounded-radius-20px font-quicksand-font">
+                        <p className=" text-lg mt-36 bg-black py-5 hover:bg-white hover:text-black rounded-radius-20px font-quicksand-font text-white">
                           Baca Selengkapnya...
                         </p>
                       </a>

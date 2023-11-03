@@ -58,7 +58,7 @@ export default function Login() {
         className=" bg-custom-gray-1 w-3/6 m-auto justify-center mt-10 rounded-radius-20px"
         onSubmit={handleSubmit(handleLogin)}
       >
-        <h1 className=" text-center text-7xl font-bold py-10 font-quicksand-font">
+        <h1 className=" text-center text-7xl font-bold py-10 font-quicksand-font text-white">
           Login
         </h1>
         <Input

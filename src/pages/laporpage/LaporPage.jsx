@@ -208,7 +208,7 @@ export default function LaporPage() {
             selectedId == "" ? onSubmit : handleSubmitEdit
           )}
         >
-          <h1 className=" bg-custom-orange-2 py-5 text-center text-white w-4/6 justify-center items-center m-auto mb-8 font-bold rounded-md">
+          <h1 className=" text-3xl py-5 text-center text-white w-4/6 justify-center items-center m-auto mb-8 font-bold rounded-md">
             LAPORKAN KELUHAN ANDA!
           </h1>
           <Input

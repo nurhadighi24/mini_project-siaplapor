@@ -16,7 +16,7 @@ export default function Table({
             {headers.map((header, index) => (
               <th
                 key={index}
-                className=" border-2 border-black p-8 text-left bg-custom-blue-1 text-white font-quicksand-font text-2xl font-bold"
+                className=" border-2 border-black p-8 text-left bg-slate-950 text-white font-quicksand-font text-2xl font-bold"
               >
                 {header}
               </th>

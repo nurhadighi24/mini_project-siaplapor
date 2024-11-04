@@ -47,6 +47,12 @@ export default function Navbar() {
         >
           QnA with bot
         </Link>
+        <Link
+          to="/katalog"
+          className=" text-custom-orange-1 bg-blue-1-navbar rounded-lg  px-6 py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 font-bold"
+        >
+          KATALOG
+        </Link>
       </div>
       {token === "" ? (
         <Link

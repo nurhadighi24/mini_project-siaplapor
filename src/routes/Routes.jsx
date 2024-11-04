@@ -10,6 +10,7 @@ import Login from "../pages/auth/Login";
 import { useToken } from "../utils/states/token-context";
 import LandingPage from "../pages/landingpage/LandingPage.jsx";
 import Qnabot from "../pages/qnabot/Qnabot.jsx";
+import Katalog from "../pages/katalog.jsx";
 
 export default function Routes() {
   const { token } = useToken();
@@ -30,6 +31,10 @@ export default function Routes() {
     {
       path: "/qnabot",
       element: <Qnabot />,
+    },
+    {
+      path: "/katalog",
+      element: <Katalog />,
     },
     {
       path: "*",
